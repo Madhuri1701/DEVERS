@@ -61,7 +61,6 @@
                 <span></span><span></span><span></span>
             </button>
             <a href="profile.html" class="profile-avatar" id="profileAvatar" title="Profile">
-                <!-- Minimal SVG Avatar -->
                 <svg width="36" height="36" viewBox="0 0 36 36">
                     <circle cx="18" cy="18" r="16" fill="#fff" stroke="#111" stroke-width="2"/>
                     <ellipse cx="18" cy="15" rx="6" ry="7" fill="#e3e6f3"/>
@@ -76,10 +75,7 @@
     <section class="search-row comic-outline">
         <input type="text" id="searchInput" placeholder="Search AI tools..." autocomplete="off">
         <button id="searchBtn" class="icon-btn" aria-label="Search">
-            <svg width="22" height="22" viewBox="0 0 22 22">
-                <circle cx="10" cy="10" r="8" stroke="#253a7d" stroke-width="2" fill="none"/>
-                <line x1="16" y1="16" x2="21" y2="21" stroke="#253a7d" stroke-width="2" />
-            </svg>
+            🔍
         </button>
         <div class="filter-group">
             <select id="filterDropdown" class="comic-outline">
@@ -87,22 +83,15 @@
                 <option value="verified">Verified Tools</option>
                 <option value="unverified">Unverified Tools</option>
             </select>
-            <button class="icon-btn filter-btn" aria-label="Filter">
-                <svg width="22" height="22" viewBox="0 0 22 22">
-                    <rect x="3" y="7" width="16" height="2.5" fill="#253a7d"/>
-                    <rect x="7" y="13" width="8" height="2.5" fill="#253a7d"/>
-                </svg>
-            </button>
         </div>
     </section>
 
     <!-- AI Tools Section -->
-    <main class="tools-section">
-        <!-- Toolboxes will be dynamically added here -->
+    <main class="tools-section" id="toolsContainer">
+        <!-- Approved tools will be dynamically added here -->
     </main>
 
+    <!-- Scripts -->
     <script src="mainpage.js"></script>
-      <script src="//code.tidio.co/xigsab6mvli76gywosypy18fzzbgmy79.js" async></script>
-
 </body>
 </html>

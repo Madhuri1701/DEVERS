@@ -1,72 +1,112 @@
-// Sidebar toggling
-const leftSidebar = document.getElementById('leftSidebar');
-const rightSidebar = document.getElementById('rightSidebar');
-const mainDashBtn = document.getElementById('mainDashBtn');
-const categoryBtn = document.getElementById('categoryBtn');
-const homeBtn = document.getElementById('homeBtn');
-
-mainDashBtn.addEventListener('click', () => {
-    leftSidebar.classList.toggle('open');
-});
-categoryBtn.addEventListener('click', () => {
-    rightSidebar.classList.toggle('open');
-});
-homeBtn.addEventListener('click', () => {
-    leftSidebar.classList.remove('open');
-});
-
-// Profile avatar links to profile.html
-const profileAvatar = document.getElementById('profileAvatar');
-profileAvatar.addEventListener('click', (e) => {
-    window.location.href = 'profile.html';
-});
-
-// Search/filter (will work once tools are added dynamically)
+const toolsContainer = document.getElementById('toolsContainer');
 const searchInput = document.getElementById('searchInput');
-const searchBtn = document.getElementById('searchBtn');
 const filterDropdown = document.getElementById('filterDropdown');
 
-function applySearchAndFilter() {
-    const query = searchInput.value.toLowerCase();
-    const filter = filterDropdown.value;
-    const toolBoxes = Array.from(document.querySelectorAll('.tool-box'));
+let allTools = []; // store all tools from backend
 
-    toolBoxes.forEach(box => {
-        const name = box.getAttribute('data-tool').toLowerCase();
-        const desc = box.querySelector('.tool-desc').textContent.toLowerCase();
-        const verified = box.getAttribute('data-verified') === 'true';
-        let matched = name.includes(query) || desc.includes(query);
-        if (filter === 'verified' && !verified) matched = false;
-        if (filter === 'unverified' && verified) matched = false;
-        box.style.display = matched ? '' : 'none';
+// === Sidebar toggles ===
+const leftSidebar = document.getElementById("leftSidebar");
+const rightSidebar = document.getElementById("rightSidebar");
+const mainDashBtn = document.getElementById("mainDashBtn");
+const categoryBtn = document.getElementById("categoryBtn");
+
+// Toggle left sidebar
+mainDashBtn.addEventListener("click", () => {
+    leftSidebar.classList.toggle("open");
+    rightSidebar.classList.remove("open"); // close right if open
+});
+
+// Toggle right sidebar
+categoryBtn.addEventListener("click", () => {
+    rightSidebar.classList.toggle("open");
+    leftSidebar.classList.remove("open"); // close left if open
+});
+
+// Close sidebars when clicking outside
+document.addEventListener("click", (e) => {
+    if (
+        !leftSidebar.contains(e.target) &&
+        !mainDashBtn.contains(e.target) &&
+        leftSidebar.classList.contains("open")
+    ) {
+        leftSidebar.classList.remove("open");
+    }
+    if (
+        !rightSidebar.contains(e.target) &&
+        !categoryBtn.contains(e.target) &&
+        rightSidebar.classList.contains("open")
+    ) {
+        rightSidebar.classList.remove("open");
+    }
+});
+
+// === Tools logic ===
+
+// Fetch tools from backend
+async function loadTools() {
+    try {
+        const res = await fetch('http://localhost:5000/api/tools'); // ✅ correct port
+// ✅ backend endpoint
+        allTools = await res.json();
+        renderTools();
+    } catch (err) {
+        console.error('Error loading tools:', err);
+        toolsContainer.innerHTML = '<p style="color:red;">Failed to load tools.</p>';
+    }
+}
+
+// Render tools with search + filter
+function renderTools() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const filter = filterDropdown.value;
+
+    toolsContainer.innerHTML = '';
+
+    const filtered = allTools.filter(tool => {
+        const matchesSearch =
+            tool.toolName.toLowerCase().includes(searchTerm) ||
+            (tool.shortDesc || '').toLowerCase().includes(searchTerm);
+
+        const matchesFilter =
+            filter === 'all' ||
+            (filter === 'verified' && tool.status === 'approved') ||
+            (filter === 'unverified' && tool.status !== 'approved');
+
+        return matchesSearch && matchesFilter;
+    });
+
+    if (filtered.length === 0) {
+        toolsContainer.innerHTML = '<p>No tools found.</p>';
+        return;
+    }
+
+    filtered.forEach(tool => {
+        const box = document.createElement('div');
+        box.className = 'tool-box comic-outline';
+        box.innerHTML = `
+            <div class="tool-header">
+                <img src="${tool.logoFile ? '/' + tool.logoFile : 'default-logo.png'}" 
+                     alt="${tool.toolName}" 
+                     class="tool-logo">
+                <h3 class="tool-name">${tool.toolName}</h3>
+            </div>
+            <p class="tool-desc">${tool.shortDesc || ''}</p>
+            <p class="tool-status">
+                ${tool.status === 'approved' ? '✅ Approved' : '⌛ Pending'}
+            </p>
+            <div class="tool-actions">
+                <a href="${tool.toolLink || '#'}" target="_blank" class="try-btn">Try Tool</a>
+                ${tool.demoLink ? `<a href="${tool.demoLink}" target="_blank" class="desc-btn">Demo</a>` : ''}
+            </div>
+        `;
+        toolsContainer.appendChild(box);
     });
 }
 
-searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        applySearchAndFilter();
-    }
-});
-searchBtn.addEventListener('click', applySearchAndFilter);
-filterDropdown.addEventListener('change', applySearchAndFilter);
+// Event listeners
+searchInput.addEventListener('input', renderTools);
+filterDropdown.addEventListener('change', renderTools);
 
-// Sidebar close on outside click
-document.addEventListener('click', function(e) {
-    if (leftSidebar.classList.contains('open')) {
-        if (!leftSidebar.contains(e.target) && !mainDashBtn.contains(e.target)) {
-            leftSidebar.classList.remove('open');
-        }
-    }
-    if (rightSidebar.classList.contains('open')) {
-        if (!rightSidebar.contains(e.target) && !categoryBtn.contains(e.target)) {
-            rightSidebar.classList.remove('open');
-        }
-    }
-});
-
-// Prevent sidebar click from bubbling to document
-[leftSidebar, rightSidebar].forEach(sb => {
-    sb.addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
-});
+// Load tools initially + auto-refresh every 5s
+loadTools();
+setInterval(loadTools, 5000);
