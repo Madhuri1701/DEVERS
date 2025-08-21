@@ -10,12 +10,7 @@
   <div class="container">
     <h1>Submit Your Tool</h1>
 
-    <!-- ✅ Correct action & enctype for MongoDB backend -->
     <form id="uploadForm" action="/upload-tool" method="POST" enctype="multipart/form-data" novalidate>
-
-
-
-
       
       <div class="form-section">
         <label for="toolName">Tool Name<span class="required">*</span></label>
@@ -56,14 +51,10 @@
       <div class="form-section">
         <label>Upload Tool File AND GitHub/Website Link<span class="required">*</span></label>
         <div class="upload-choices">
-          <input type="file" id="toolFile" name="toolFile" accept=".zip,.whl">
-          <input type="url" id="toolLink" name="toolLink" placeholder="GitHub/Website link">
+          <input type="file" id="toolFile" name="toolFile" accept=".zip,.whl" required>
+          <input type="url" id="toolLink" name="toolLink" placeholder="GitHub/Website link" required>
         </div>
         <span class="validation-message" id="toolFileLinkError"></span>
-        <div class="drag-drop-zone" id="toolFileDrop">
-          <span>Drag & Drop .zip/.whl file here</span>
-          <progress id="toolFileProgress" value="0" max="100" style="display:none;"></progress>
-        </div>
       </div>
 
       <div class="form-section">
@@ -77,7 +68,7 @@
         <label for="pricing">Pricing Model<span class="required">*</span></label>
         <select id="pricing" name="pricing" required>
           <option value="">-- Select --</option>
-          <option>Free</option><option>Freemium</option><option>Paid</option>
+          <option>Free</option><option>Premium</option><option>Paid</option>
         </select>
         <span class="validation-message" id="pricingError"></span>
       </div>
@@ -117,20 +108,12 @@
         <label>Upload Logo/Thumbnail<span class="required">*</span></label>
         <input type="file" id="logoFile" name="logoFile" accept="image/*" required>
         <span class="validation-message" id="logoFileError"></span>
-        <div class="drag-drop-zone" id="logoFileDrop">
-          <span>Drag & Drop image file here</span>
-          <progress id="logoFileProgress" value="0" max="100" style="display:none;"></progress>
-        </div>
       </div>
 
       <div class="form-section">
         <label>Upload Documentation (PDF/Markdown)<span class="required">*</span></label>
         <input type="file" id="docFile" name="docFile" accept=".pdf,.md,.markdown" required>
         <span class="validation-message" id="docFileError"></span>
-        <div class="drag-drop-zone" id="docFileDrop">
-          <span>Drag & Drop .pdf/.md file here</span>
-          <progress id="docFileProgress" value="0" max="100" style="display:none;"></progress>
-        </div>
       </div>
 
       <div class="form-section">
@@ -167,8 +150,6 @@
     <div id="restrictionMessage" class="restriction-message"></div>
   </div>
 
-  <!-- Keep your JS for live preview, validation, etc. -->
   <script src="uploadtool.js"></script>
 </body>
 </html>
-
