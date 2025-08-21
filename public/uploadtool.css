@@ -1,0 +1,249 @@
+body {
+    background: #253a7d;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.03);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+form {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 2px 12px rgba(37,58,125,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkbox-section {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+label {
+    font-weight: 500;
+    color: #253a7d;
+    font-size: 1rem;
+}
+
+input[type="text"], input[type="url"], input[type="number"], textarea, select {
+    border: 1px solid #dbe3fa;
+    background: #fff;
+    color: #253a7d;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 12px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, input[type="url"]:focus, textarea:focus, select:focus {
+    border-color: #253a7d;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+input[type="file"] {
+    background: #fff;
+    color: #253a7d;
+    border-radius: 8px;
+    padding: 6px 0;
+    font-size: 1rem;
+}
+
+.upload-choices {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.drag-drop-zone {
+    background: #f2f6ff;
+    border: 2px dashed #253a7d;
+    border-radius: 8px;
+    padding: 18px;
+    text-align: center;
+    color: #253a7d;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+}
+
+.drag-drop-zone.dragover {
+    background: #dbe3fa;
+}
+
+progress {
+    width: 90%;
+    height: 12px;
+    border-radius: 6px;
+    margin-top: 10px;
+    appearance: none;
+}
+
+input[type="checkbox"] {
+    accent-color: #253a7d;
+    width: 20px;
+    height: 20px;
+}
+
+.required {
+    color: #d32525;
+    margin-left: 4px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 18px;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+button {
+    background: #253a7d;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(37,58,125,0.06);
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #1f3065;
+}
+
+.validation-message {
+    color: #d32525;
+    font-size: 0.9rem;
+    min-height: 18px;
+}
+
+#submissionMessage {
+    color: #253a7d;
+    font-size: 1.1rem;
+    margin-top: 16px;
+    background: #dbe3fa;
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+}
+
+.restriction-message {
+    color: #fff;
+    background: #d32525;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+}
+
+.preview-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(37,58,125,0.08);
+    padding: 24px;
+    min-width: 260px;
+    max-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.preview-logo {
+    width: 84px;
+    height: 84px;
+    background: #dbe3fa;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.preview-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 14px;
+    object-fit: contain;
+}
+
+.preview-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #253a7d;
+    text-align: center;
+}
+
+.preview-short-desc {
+    font-size: 1rem;
+    color: #4b5a85;
+    text-align: center;
+    min-height: 22px;
+}
+
+@media (max-width: 900px) {
+    .container {
+        max-width: 98vw;
+        padding: 10px;
+    }
+    form {
+        padding: 12px;
+    }
+    .preview-card {
+        padding: 14px;
+        min-width: 180px;
+        max-width: 95vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        gap: 16px;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

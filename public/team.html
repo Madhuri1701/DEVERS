@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Our Team</title>
+  <style>
+    :root {
+      --primary: #253a7d;
+      --white: #fff;
+      --card-radius: 18px;
+      --card-shadow: 0 4px 24px rgba(37, 58, 125, 0.08);
+      --hover-shadow: 0 8px 32px rgba(37, 58, 125, 0.15);
+    }
+    body {
+      background: var(--white);
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding-top: 48px;
+      padding-bottom: 12px;
+      text-align: center;
+    }
+    h1 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    p.subheading {
+      color: var(--primary);
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin: 16px 0 0 0;
+      opacity: 0.85;
+      letter-spacing: 0.5px;
+    }
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 16px 32px 16px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .team-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-top: 16px;
+    }
+    @media (min-width: 700px) {
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 36px;
+        margin-top: 24px;
+      }
+    }
+    .team-card {
+      background: var(--white);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 24px 28px 24px;
+      transition: transform 0.18s cubic-bezier(.6,.05,.6,.95), box-shadow 0.18s cubic-bezier(.6,.05,.6,.95);
+      cursor: pointer;
+      min-width: 0;
+    }
+    .team-card:hover {
+      transform: scale(1.035);
+      box-shadow: var(--hover-shadow);
+    }
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin-bottom: 18px;
+      background: #f3f6fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--primary);
+    }
+    .avatar svg {
+      width: 50px;
+      height: 50px;
+      display: block;
+    }
+    .member-name {
+      font-weight: 700;
+      font-size: 1.19rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 10px;
+      letter-spacing: 0.3px;
+    }
+    .member-desc {
+      color: #333;
+      font-size: 1rem;
+      text-align: center;
+      line-height: 1.5;
+      opacity: 0.85;
+    }
+    footer {
+      background: none;
+      color: var(--primary);
+      text-align: center;
+      font-size: 1.08rem;
+      padding: 28px 0 18px 0;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Team</h1>
+    <p class="subheading">Meet the minds behind this project</p>
+  </header>
+  <main>
+    <section class="team-grid">
+      <!-- Card 1 -->
+      <div class="team-card">
+        <div class="avatar">
+          <!-- Cartoon-style SVG avatar placeholder -->
+          <svg viewBox="0 0 50 50" fill="none">
+            <circle cx="25" cy="25" r="24" fill="#d6e0fa" stroke="#253a7d" stroke-width="2"/>
+            <ellipse cx="25" cy="22" rx="11" ry="11" fill="#fff"/>
+            <ellipse cx="25" cy="22" rx="8.5" ry="8" fill="#f3f6fa"/>
+            <ellipse cx="25" cy="27.5" rx="14" ry="7.5" fill="#fff"/>
+            <circle cx="19.5" cy="21.5" r="1.7" fill="#253a7d"/>
+            <circle cx="30.5" cy="21.5" r="1.7" fill="#253a7d"/>
+            <path d="M22 26c1.1 1.5 4.1 1.5 5.2 0" stroke="#253a7d" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="member-name">VINNAKOTA MADHURI KRISHNA PRIYA</div>
+        <div class="member-desc">
+          Student, MIC College of Technology, 3rd Year B.Tech, Artificial Intelligence
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="team-card">
+        <div class="avatar">
+          <svg viewBox="0 0 50 50" fill="none">
+            <circle cx="25" cy="25" r="24" fill="#d6e0fa" stroke="#253a7d" stroke-width="2"/>
+            <ellipse cx="25" cy="22" rx="11" ry="11" fill="#fff"/>
+            <ellipse cx="25" cy="22" rx="8.5" ry="8" fill="#f3f6fa"/>
+            <ellipse cx="25" cy="27.5" rx="14" ry="7.5" fill="#fff"/>
+            <circle cx="19.5" cy="21.5" r="1.7" fill="#253a7d"/>
+            <circle cx="30.5" cy="21.5" r="1.7" fill="#253a7d"/>
+            <path d="M22 26c1.1 1.5 4.1 1.5 5.2 0" stroke="#253a7d" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="member-name">AFIFA PATTAN</div>
+        <div class="member-desc">
+          Student, MIC College of Technology, 3rd Year B.Tech, Artificial Intelligence
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="team-card">
+        <div class="avatar">
+          <svg viewBox="0 0 50 50" fill="none">
+            <circle cx="25" cy="25" r="24" fill="#d6e0fa" stroke="#253a7d" stroke-width="2"/>
+            <ellipse cx="25" cy="22" rx="11" ry="11" fill="#fff"/>
+            <ellipse cx="25" cy="22" rx="8.5" ry="8" fill="#f3f6fa"/>
+            <ellipse cx="25" cy="27.5" rx="14" ry="7.5" fill="#fff"/>
+            <circle cx="19.5" cy="21.5" r="1.7" fill="#253a7d"/>
+            <circle cx="30.5" cy="21.5" r="1.7" fill="#253a7d"/>
+            <path d="M22 26c1.1 1.5 4.1 1.5 5.2 0" stroke="#253a7d" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="member-name">DEVARAPALLI SRAVANTHI</div>
+        <div class="member-desc">
+          Student, MIC College of Technology, 3rd Year B.Tech, Artificial Intelligence
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    Proudly built by the divas 
+  </footer>
+</body>
+</html>

@@ -1,0 +1,142 @@
+/* ---------------- Fonts & Reset ---------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ---------------- Body ---------------- */
+body {
+    background: linear-gradient(to bottom, #f6f7fb, #e8ebf7);
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* ---------------- Header ---------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #253a7d;
+}
+
+header a {
+    color: #253a7d;
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid #253a7d;
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+header a:hover {
+    background-color: #253a7d;
+    color: #fff;
+}
+
+/* ---------------- Profile Card ---------------- */
+.profile-card {
+    background-color: #fff;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 2rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Avatar Circle */
+.avatar {
+    background-color: #253a7d;
+    color: #fff;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem auto;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(37,58,125,0.3);
+}
+
+/* Name */
+.profile-card h2 {
+    font-size: 1.8rem;
+    color: #253a7d;
+    margin-bottom: 1.5rem;
+}
+
+/* Profile Info Boxes */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profile-info div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    background-color: #f6f7fb;
+    border: 1px solid #d0d4e3;
+    font-weight: 500;
+}
+
+/* Buttons */
+button {
+    margin-top: 1.8rem;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #253a7d;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #1d2c64;
+}
+
+/* Loading Message */
+.loading-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 3rem;
+}
+
+/* ---------------- Responsive ---------------- */
+@media screen and (max-width: 500px) {
+    .profile-card {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header a {
+        font-size: 0.9rem;
+    }
+}

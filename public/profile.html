@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <header>
+        <h1>Profile</h1>
+        <a href="mainpage.html">⬅ Back to Main Page</a>
+    </header>
+
+    <main id="profileContainer">
+        <p class="loading-message">Loading your profile...</p>
+    </main>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", async () => {
+            const container = document.getElementById("profileContainer");
+            try {
+                const res = await fetch("http://localhost:5000/profile-data", {
+                    credentials: "include"
+                });
+
+                if (!res.ok) throw new Error("Not logged in");
+
+                const user = await res.json();
+                container.innerHTML = `
+                    <div class="profile-card">
+                        <div class="avatar">${user.name[0]}</div>
+                        <h2>${user.name}</h2>
+                        <div class="profile-info">
+                            <div><span>ID:</span> ${user.id}</div>
+                            <div><span>Email:</span> ${user.email}</div>
+                            <div><span>Account Created:</span> ${new Date(user.createdAt).toLocaleString()}</div>
+                        </div>
+                        <button id="logoutBtn">Logout</button>
+                    </div>
+                `;
+
+                document.getElementById("logoutBtn").addEventListener("click", async () => {
+                    await fetch("http://localhost:5000/logout", {
+                        method: "POST",
+                        credentials: "include"
+                    });
+                    window.location.href = "login.html";
+                });
+
+            } catch (err) {
+                alert("You're not logged in. Redirecting to login page...");
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+</body>
+</html>

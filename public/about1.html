@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - AI Marketplace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-deep: #253a7d;
+      --white: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-light: #4a4a4a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--white);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Header / Hero Section */
+    header {
+      background-color: var(--blue-deep);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 1rem 3rem 1rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.8rem; /* reduced spacing for balance */
+    }
+    header p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Main content sections */
+    section {
+      padding: 3rem 1rem; /* reduced padding for tighter spacing */
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      color: var(--blue-deep);
+      margin-bottom: 0.8rem; /* tighter spacing between heading and text */
+      text-align: center;
+    }
+    section p, section li {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 0.8rem; /* slightly less space */
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li::before {
+      content: "•";
+      color: var(--blue-deep);
+      display: inline-block; 
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    /* Call to Action Button */
+    .cta-button {
+      display: inline-block;
+      background-color: var(--blue-deep);
+      color: var(--white);
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+      margin: 1.5rem 0; /* slightly less space above/below button */
+    }
+    .cta-button:hover {
+      background-color: #1b2860;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      header p { font-size: 1.1rem; }
+      section h2 { font-size: 1.6rem; }
+    }
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.8rem; }
+      header p { font-size: 1rem; }
+      section h2 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Hero Section -->
+  <header>
+    <h1>Welcome</h1>
+    <p>Your hub for discovering, testing, and sharing AI tools.</p>
+  </header>
+
+  <!-- Core Features -->
+  <section>
+    <h2>What the Platform Offers</h2>
+    <ul>
+      <li>Explore AI tools: search, filter, test</li>
+      <li>User personalization: save favorites, track downloads</li>
+      <li>Developer support: upload tools, get feedback</li>
+    </ul>
+  </section>
+
+  <!-- Problem + Solution -->
+  <section>
+    <h2>Why We Exist</h2>
+    <p>Finding trustworthy AI tools across the internet can be confusing and time-consuming. Our platform provides a centralized, curated hub connecting users and developers seamlessly.</p>
+  </section>
+
+  <!-- Benefits for Users -->
+  <section>
+    <h2>Platform Benefits for Users</h2>
+    <ul>
+      <li>Quick access to trending AI tools</li>
+      <li>Ratings & reviews from the community</li>
+      <li>Easy categories and tagging system</li>
+    </ul>
+  </section>
+
+  <!-- Benefits for Developers -->
+  <section>
+    <h2>Platform Benefits for Developers</h2>
+    <ul>
+      <li>Exposure to a growing user base</li>
+      <li>Analytics on tool usage</li>
+      <li>Community feedback and collaboration</li>
+    </ul>
+  </section>
+
+  <!-- Security & Trust -->
+  <section>
+    <h2>Security & Trust</h2>
+    <p>Your data is protected, fair usage policies are applied, and tools are safe to test within our platform.</p>
+  </section>
+
+  <!-- Vision Statement -->
+  <section>
+    <h2>Vision Statement</h2>
+    <p>Our vision is to become the world’s most accessible AI marketplace, bridging innovation and usability.</p>
+  </section>
+
+  <!-- Community & Values -->
+  <section>
+    <h2>Community & Values</h2>
+    <p>We emphasize transparency, trust, and innovation. No BS. Just useful AI tools for everyone.</p>
+  </section>
+
+  <!-- Call to Action -->
+  <section style="text-align:center;">
+    <a href="mainpage.html" class="cta-button">Start Exploring AI Tools</a>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorites — AI Marketplace</title>
+  <style>
+    :root {
+      --brand: #253a7d;
+      --bg: #ffffff;
+      --text: #111111;
+      --card-bg: #ffffff;
+      --muted-text: #4a4a4a;
+      --border: #e7e9f2;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+      --btn-hover: #1e2e66;
+    }
+    html[data-theme="dark"] {
+      --bg: #253a7d;
+      --text: #ffffff;
+      --card-bg: #1f2f69;
+      --muted-text: #e9ecff;
+      --border: #3b4a8f;
+      --shadow: 0 8px 24px rgba(0,0,0,0.35);
+      --btn-hover: #1a2a5b;
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
+    .container { max-width: 900px; margin: 32px auto; padding: 0 16px; }
+    header { text-align: center; margin-bottom: 20px; }
+    h1 { color: var(--brand); margin: 0; font-size: 1.8rem; }
+    .favorites-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 16px; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); padding: 16px; display: flex; flex-direction: column; justify-content: space-between; }
+    .card .tool-title { font-weight: 600; margin: 0 0 8px; }
+    .card .tool-desc { font-size: 0.92rem; color: var(--muted-text); margin:0 0 12px; }
+    .card .actions { display: flex; justify-content: space-between; align-items: center; }
+    .btn { background: var(--brand); color: #fff; border: none; border-radius: 12px; padding: 8px 12px; cursor: pointer; transition: background 0.2s; text-decoration:none; text-align:center; }
+    .btn:hover { background: var(--btn-hover); }
+    .heart { cursor: pointer; font-size: 1.2rem; color: red; }
+    .footer { text-align:center; margin-top:20px; font-size:0.9rem; color: var(--muted-text); }
+    .link { color: var(--brand); text-decoration: none; }
+    .link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Favorites</h1>
+    </header>
+
+    <div class="favorites-grid" id="favoritesGrid">
+      <!-- Favorite tools will be injected here -->
+    </div>
+
+    <div class="footer">
+      <a class="link" href="mainpage.html">Back to Homepage</a>
+    </div>
+  </div>
+
+  <script>
+    const favoritesGrid = document.getElementById('favoritesGrid');
+
+    // Same tool data (to show descriptions too)
+    const tools = [
+      { name: 'Keyword Extractor', desc: 'Extract keywords instantly.' },
+      { name: 'Headline Generator', desc: 'Catchy headlines.' },
+      { name: 'Text Summarizer', desc: 'Short summaries.' },
+      { name: 'Text Classification', desc: 'Categorize text automatically.' }
+    ];
+
+    // Dark mode sync
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+    function getFavorites() {
+      try {
+        return JSON.parse(localStorage.getItem('ai-tool-favorites') || '[]');
+      } catch {
+        return [];
+      }
+    }
+
+    function fetchFavorites() {
+      const favs = getFavorites();
+      if (favs.length === 0) {
+        favoritesGrid.innerHTML = '<p>No favorite tools yet.</p>';
+        return;
+      }
+
+      favoritesGrid.innerHTML = '';
+      favs.forEach(toolName => {
+        const tool = tools.find(t => t.name === toolName);
+        const desc = tool ? tool.desc : "No description available.";
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <p class="tool-title">${toolName}</p>
+          <p class="tool-desc">${desc}</p>
+          <div class="actions">
+            <a href="#" class="btn">Try Now</a>
+            <span class="heart active" data-tool="${toolName}">&#10084;</span>
+          </div>
+        `;
+        favoritesGrid.appendChild(card);
+      });
+
+      // Heart click → remove from favorites
+      document.querySelectorAll('.heart').forEach(el => {
+        el.addEventListener('click', () => {
+          const toolName = el.getAttribute('data-tool');
+          let favs = getFavorites().filter(t => t !== toolName);
+          localStorage.setItem('ai-tool-favorites', JSON.stringify(favs));
+          fetchFavorites();
+        });
+      });
+    }
+
+    fetchFavorites();
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+/* General Page Styles */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 600px;
+  background: #ffffff;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  color: #333;
+  margin: 0;
+}
+
+/* Actions (Buttons) */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+button.danger {
+  background: #dc3545;
+}
+
+button.danger:hover {
+  background: #a71d2a;
+}
+
+/* Notifications List */
+.notifications-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification {
+  background: #fdfdfd;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #e1e1e1;
+  transition: background 0.2s ease;
+}
+
+.notification.unread {
+  background: #e9f5ff;
+  border-color: #b6e0fe;
+  font-weight: 500;
+}
+
+.notification:hover {
+  background: #f0f4f8;
+}
+
+.message {
+  color: #333;
+}
+
+.time {
+  font-size: 0.8rem;
+  color: #777;
+}

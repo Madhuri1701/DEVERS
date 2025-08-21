@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Marketplace</title>
+    <meta name="viewport" content="width=1024">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mainpage.css">
+</head>
+<body>
+    <!-- Left Sidebar (Main Dashboard) -->
+    <aside id="leftSidebar" class="sidebar left-sidebar">
+        <nav>
+            <ul>
+                <li class="sidebar-item" id="homeBtn"><span>🏠</span> Home</li>
+                <li class="sidebar-item"><a href="favorites.html">❤️ Favorites</a></li>
+                <li class="sidebar-item"><a href="uploadtool.html">⬆️ Upload Tool</a></li>
+                <li class="sidebar-item"><a href="profile.html">👤 Profile</a></li>
+                <li class="sidebar-item"><a href="settings.html">⚙️ Settings</a></li>
+                <li class="sidebar-item"><a href="notifications.html">🔔 Notifications</a></li>
+                <li class="sidebar-item"><a href="help.html">❓ Help / Support</a></li>
+                <li class="sidebar-item"><a href="about1.html">ℹ️ About Us</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Right Sidebar (Categories) -->
+    <aside id="rightSidebar" class="sidebar right-sidebar">
+        <nav>
+            <ul>
+                <li>NLP</li>
+                <li>CV</li>
+                <li>Productivity</li>
+                <li>Healthcare</li>
+                <li>Education</li>
+                <li>Finance</li>
+                <li>Entertainment</li>
+                <li>Security</li>
+                <li>Gaming</li>
+                <li>Music</li>
+                <li>Image Generation</li>
+                <li>Chatbots</li>
+                <li>Developer Tools</li>
+                <li>Marketing</li>
+                <li>Robotics</li>
+                 <li>other</li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Top Bar -->
+    <header class="top-bar comic-outline">
+        <div class="top-left">
+            <button id="mainDashBtn" class="icon-btn hamburger" aria-label="Main Dashboard">
+                <span></span><span></span><span></span>
+            </button>
+            <span class="ai-mart-text">AI MART</span>
+        </div>
+        <div class="top-right">
+            <button id="categoryBtn" class="icon-btn hamburger" aria-label="Categories">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="profile.html" class="profile-avatar" id="profileAvatar" title="Profile">
+                <!-- Minimal SVG Avatar -->
+                <svg width="36" height="36" viewBox="0 0 36 36">
+                    <circle cx="18" cy="18" r="16" fill="#fff" stroke="#111" stroke-width="2"/>
+                    <ellipse cx="18" cy="15" rx="6" ry="7" fill="#e3e6f3"/>
+                    <ellipse cx="18" cy="25" rx="9" ry="5.5" fill="#e3e6f3"/>
+                    <ellipse cx="18" cy="16" rx="3" ry="3.5" fill="#222"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Search Row -->
+    <section class="search-row comic-outline">
+        <input type="text" id="searchInput" placeholder="Search AI tools..." autocomplete="off">
+        <button id="searchBtn" class="icon-btn" aria-label="Search">
+            <svg width="22" height="22" viewBox="0 0 22 22">
+                <circle cx="10" cy="10" r="8" stroke="#253a7d" stroke-width="2" fill="none"/>
+                <line x1="16" y1="16" x2="21" y2="21" stroke="#253a7d" stroke-width="2" />
+            </svg>
+        </button>
+        <div class="filter-group">
+            <select id="filterDropdown" class="comic-outline">
+                <option value="all">All Tools</option>
+                <option value="verified">Verified Tools</option>
+                <option value="unverified">Unverified Tools</option>
+            </select>
+            <button class="icon-btn filter-btn" aria-label="Filter">
+                <svg width="22" height="22" viewBox="0 0 22 22">
+                    <rect x="3" y="7" width="16" height="2.5" fill="#253a7d"/>
+                    <rect x="7" y="13" width="8" height="2.5" fill="#253a7d"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- AI Tools Section -->
+    <main class="tools-section">
+        <!-- Tool Box: Keyword Extractor (Verified) -->
+        <div class="tool-box comic-outline" data-tool="Keyword Extractor" data-verified="true">
+            <div class="tool-image-placeholder"></div>
+            <div class="tool-info">
+                <div class="tool-header">
+                    <span class="tool-name">Keyword Extractor</span>
+                    <span class="verified-badge" title="Verified">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <circle cx="10" cy="10" r="9" fill="#fff" stroke="#111" stroke-width="2"/>
+                            <path d="M6 11l3 3 5-6" stroke="#16c784" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </div>
+                <p class="tool-desc">Extract keywords instantly.</p>
+            </div>
+            <div class="tool-actions">
+                <button class="try-btn comic-outline">Try Now</button>
+                <button class="desc-btn comic-outline">Description</button>
+            </div>
+            <span class="favorite-heart" data-tool="Keyword Extractor" title="Favorite">
+                <svg width="22" height="22" viewBox="0 0 22 22">
+                    <path d="M11 18s-7-4.5-7-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4.5-7 9-7 9z"
+                        fill="none" stroke="#253a7d" stroke-width="2"/>
+                </svg>
+            </span>
+        </div>
+        <!-- Tool Box: Headline Generator (Verified) -->
+        <div class="tool-box comic-outline" data-tool="Headline Generator" data-verified="true">
+            <div class="tool-image-placeholder"></div>
+            <div class="tool-info">
+                <div class="tool-header">
+                    <span class="tool-name">Headline Generator</span>
+                    <span class="verified-badge" title="Verified">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <circle cx="10" cy="10" r="9" fill="#fff" stroke="#111" stroke-width="2"/>
+                            <path d="M6 11l3 3 5-6" stroke="#16c784" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </div>
+                <p class="tool-desc">Catchy headlines.</p>
+            </div>
+            <div class="tool-actions">
+                <button class="try-btn comic-outline">Try Now</button>
+                <button class="desc-btn comic-outline">Description</button>
+            </div>
+            <span class="favorite-heart" data-tool="Headline Generator" title="Favorite">
+                <svg width="22" height="22" viewBox="0 0 22 22">
+                    <path d="M11 18s-7-4.5-7-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4.5-7 9-7 9z"
+                        fill="none" stroke="#253a7d" stroke-width="2"/>
+                </svg>
+            </span>
+        </div>
+        <!-- Tool Box: Text Summarizer (Verified) -->
+        <div class="tool-box comic-outline" data-tool="Text Summarizer" data-verified="true">
+            <div class="tool-image-placeholder"></div>
+            <div class="tool-info">
+                <div class="tool-header">
+                    <span class="tool-name">Text Summarizer</span>
+                    <span class="verified-badge" title="Verified">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <circle cx="10" cy="10" r="9" fill="#fff" stroke="#111" stroke-width="2"/>
+                            <path d="M6 11l3 3 5-6" stroke="#16c784" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </div>
+                <p class="tool-desc">Short summaries.</p>
+            </div>
+            <div class="tool-actions">
+                <button class="try-btn comic-outline">Try Now</button>
+                <button class="desc-btn comic-outline">Description</button>
+            </div>
+            <span class="favorite-heart" data-tool="Text Summarizer" title="Favorite">
+                <svg width="22" height="22" viewBox="0 0 22 22">
+                    <path d="M11 18s-7-4.5-7-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4.5-7 9-7 9z"
+                        fill="none" stroke="#253a7d" stroke-width="2"/>
+                </svg>
+            </span>
+        </div>
+        <!-- Tool Box: Text Classification (Unverified) -->
+        <div class="tool-box comic-outline" data-tool="Text Classification" data-verified="false">
+            <div class="tool-image-placeholder"></div>
+            <div class="tool-info">
+                <div class="tool-header">
+                    <span class="tool-name">Text Classification</span>
+                </div>
+                <p class="tool-desc">Categorize text automatically.</p>
+            </div>
+            <div class="tool-actions">
+                <button class="try-btn comic-outline">Try Now</button>
+                <button class="desc-btn comic-outline">Description</button>
+            </div>
+            <span class="favorite-heart" data-tool="Text Classification" title="Favorite">
+                <svg width="22" height="22" viewBox="0 0 22 22">
+                    <path d="M11 18s-7-4.5-7-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4.5-7 9-7 9z"
+                        fill="none" stroke="#253a7d" stroke-width="2"/>
+                </svg>
+            </span>
+        </div>
+    </main>
+
+    <script src="mainpage.js"></script>
+</body>
+</html>

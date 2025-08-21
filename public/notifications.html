@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications</title>
+  <link rel="stylesheet" href="notifications.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔔 Notifications</h1>
+      <div class="actions">
+        <button id="markAll">Mark all as read</button>
+        <button id="clearAll" class="danger">Clear all</button>
+      </div>
+    </header>
+
+    <ul id="notifications-list" class="notifications-list">
+      <!-- Notifications will load here -->
+      <li class="notification unread">
+        <span class="message">This is a sample unread notification</span>
+        <span class="time">Just now</span>
+      </li>
+      <li class="notification">
+        <span class="message">This is a sample read notification</span>
+        <span class="time">Yesterday</span>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    // Later we’ll connect this to MongoDB API
+    document.getElementById("markAll").addEventListener("click", () => {
+      document.querySelectorAll(".notification").forEach(el => el.classList.remove("unread"));
+    });
+
+    document.getElementById("clearAll").addEventListener("click", () => {
+      document.getElementById("notifications-list").innerHTML = "<p>No notifications</p>";
+    });
+  </script>
+</body>
+</html>
